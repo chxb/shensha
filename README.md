@@ -1,3 +1,4 @@
+# 简介
 根据干支和八字信息，查询神煞组合的算法。涵盖51种常用神煞。
 使用方法参考方法注释：
 ```javascript
@@ -15,3 +16,8 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
 
 }
 ```
+# 应用示例
+本神煞算法已应用于吉时雨排盘软件：https://ji.js.cn
+
+# 关于作者
+xianbo.chen@gmail.com
