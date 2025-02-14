@@ -9,11 +9,11 @@ var JIAZI = [
 
 /**
  * 根据干支和八字信息，查询神煞组合。
- * @param String ganzhi 干支(柱)
- * @param Array bazi 八字数组，数组元素0-7，分别是年柱、月柱、日柱、时柱的干支
- * @param boolean isman 性别
- * @param int witch 哪一柱，1，2，3，4分别代表年/月/日/时柱。其它分别代表大运，流年，流月，流时。
- * @param String 年柱纳音
+ * @param String ganzhi 要查询神煞的某柱干支，例如年柱为甲寅，则参数值为：甲寅
+ * @param Array bazi 八字数组，数组元素从0-7，分别是年干、年支、月干、月支、日干、日支、时干、时支
+ * @param boolean isman 性别，true为男，否则为女
+ * @param int witch 查的是哪一柱，1，2，3，4分别代表年/月/日/时柱。其它分别是5大运，6流年，7流月，8流时。
+ * @param String 年柱纳音,查询学堂、词馆神煞时用。例如：海中金
  * @returns Array 返回神煞数组
  */
 function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
@@ -71,7 +71,6 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
     if (((witch!=3)&&huagai(rizhi, zhi) == 1) || ((witch!=1)&&huagai(nianzhi, zhi) == 1)) {
         shengShaList.push("华盖");
     }
-    //仅查本命局?
     if (((witch!=3)&&jiangxing(rizhi, zhi) == 1) || ((witch!=1)&&jiangxing(nianzhi, zhi) == 1)) {
         shengShaList.push("将星");
     }
@@ -151,7 +150,7 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
         shengShaList.push("亡神");
     }
     if( (witch==3)&&shiedabai(rigan, rizhi)==1 ){
-        shengShaList.push("<span class='font10px shensha-tag'>十恶大败</span>");//十恶大败
+        shengShaList.push("十恶大败");
     }
     if ((taohua(rizhi, zhi) == 1) || (taohua(nianzhi, zhi) == 1)) {
         shengShaList.push("桃花");
@@ -160,7 +159,7 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
         shengShaList.push("孤鸾");
     }
     if( (witch==3)&&yingyangchacuo(rigan, rizhi)==1 ){
-        shengShaList.push("<span class='font10px shensha-tag'>阴差阳错</span>");//阴差阳错
+        shengShaList.push("阴差阳错");
     }
     if( (witch==3)&&sifei(yuezhi, rigan, rizhi)==1 ){
         shengShaList.push("四废");
