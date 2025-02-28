@@ -1107,7 +1107,7 @@ function wangshen(paramString1, paramString2) {
     const matchGroups = {
         "亥": ["申", "子", "辰"],
         "巳": ["寅", "午", "戌"],
-        "申": ["巳", "巳", "丑"],
+        "申": ["巳", "酉", "丑"],
         "寅": ["亥", "卯", "未"]
     };
 
