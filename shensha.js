@@ -40,6 +40,9 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
     if (yuede(yuezhi, gan) == 1) {
         shengShaList.push("月德");
     }
+    if (dexiuguiren(yuezhi, [niangan, yuegan, rigan, shigan]) == 1) {
+        shengShaList.push("德秀");
+    }
     if( (tiandehe(yuezhi, gan)==1) || (tiandehe(yuezhi, zhi)==1)){
         shengShaList.push("天德合");
     }
@@ -178,6 +181,57 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
     }
 
     return shengShaList;
+}
+
+/**
+ * 德秀贵人
+ * 《三命通会》中云："德者，本月生旺之气；秀者，合天地中和之气，五行变化而成者也。"
+ * 寅午戌月，丙丁为德，戊癸为秀；
+ * 申子辰月，壬癸戊己为德，丙辛甲己为秀；
+ * 巳酉丑月，庚辛为德，乙庚为秀；
+ * 亥卯未月，甲乙为德，丁壬为秀。
+ * 
+ * @param yuezhi 月支
+ * @param tiangans 天干数组，包含年干、月干、日干、时干
+ * @return 返回1表示是德秀贵人，0表示不是
+ */
+function dexiuguiren(yuezhi, tiangans) {
+    // 检查是否有特定天干
+    function hasTiangan(targetGans) {
+        return tiangans.some(gan => targetGans.includes(gan));
+    }
+    
+    // 检查是否有特定天干组合
+    function hasTianganCombination(gan1, gan2) {
+        return tiangans.includes(gan1) && tiangans.includes(gan2);
+    }
+    
+    // 火局：寅午戌
+    if (["寅", "午", "戌"].includes(yuezhi)) {
+        // 德：丙丁，秀：戊癸
+        return hasTiangan(["丙", "丁"]) && hasTianganCombination("戊", "癸") ? 1 : 0;
+    }
+    
+    // 水局：申子辰
+    else if (["申", "子", "辰"].includes(yuezhi)) {
+        // 德：壬癸戊己，秀：丙辛或甲己
+        return hasTiangan(["壬", "癸", "戊", "己"]) && 
+            (hasTianganCombination("丙", "辛") || hasTianganCombination("甲", "己")) ? 1 : 0;
+    }
+    
+    // 金局：巳酉丑
+    else if (["巳", "酉", "丑"].includes(yuezhi)) {
+        // 德：庚辛，秀：乙庚
+        return hasTiangan(["庚", "辛"]) && hasTianganCombination("乙", "庚") ? 1 : 0;
+    }
+    
+    // 木局：亥卯未
+    else if (["亥", "卯", "未"].includes(yuezhi)) {
+        // 德：甲乙，秀：丁壬
+        return hasTiangan(["甲", "乙"]) && hasTianganCombination("丁", "壬") ? 1 : 0;
+    }
+    
+    return 0;
 }
 
 /**
