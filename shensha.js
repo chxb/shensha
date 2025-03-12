@@ -143,7 +143,7 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
     if( ((witch==3)&&tongzi(yuezhi, niannayin, rizhi)) || ((witch==4)&&tongzi(yuezhi, niannayin, shizhi)) ){
         shengShaList.push("童子");
     }
-    if (tianchu(niangan, rigan, dizhi) == 1) {
+    if (tianchu(niangan, rigan, zhi) == 1) {
         shengShaList.push("天厨");
     }
     if( (witch!=1)&&gucheng(nianzhi, zhi)== 1){
