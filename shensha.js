@@ -143,6 +143,9 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
     if( ((witch==3)&&tongzi(yuezhi, niannayin, rizhi)) || ((witch==4)&&tongzi(yuezhi, niannayin, shizhi)) ){
         shengShaList.push("童子");
     }
+    if (tianchu(niangan, rigan, dizhi) == 1) {
+        shengShaList.push("天厨");
+    }
     if( (witch!=1)&&gucheng(nianzhi, zhi)== 1){
         shengShaList.push("孤辰");
     }
@@ -181,6 +184,32 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
     }
 
     return shengShaList;
+}
+
+/**
+ * 天厨贵人。
+ * 查法：
+ * 以年干、日干查余四支。
+ * 丙干见巳，丁干见午
+ * 戊干见申，己干见酉
+ * 庚干见亥，辛干见子
+ * 壬干见寅，癸干见卯
+ * @param yearGan 年干
+ * @param dayGan 日干
+ * @param dizhi 地支
+*/
+function tianchu(yearGan, dayGan, dizhi) {
+    const tianChuRules = {
+        '丙': '巳',
+        '丁': '午',
+        '戊': '申',
+        '己': '酉',
+        '庚': '亥',
+        '辛': '子',
+        '壬': '寅',
+        '癸': '卯'
+    };
+    return (tianChuRules[yearGan] === dizhi || tianChuRules[dayGan] === dizhi) ? 1:0;
 }
 
 /**
