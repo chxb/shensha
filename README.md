@@ -21,4 +21,4 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
 
 # 关于作者
 xianbo.chen@gmail.com
-本人将在丙午年公开[吉时雨排盘](https://ji.js.cn)全部源码，敬请关注。
+本人将在丙午年公开[吉时雨排盘](https://ji.js.cn)全部源码，敬请关注。**期待源码的，关注本人github主页即可，不用总是私信问**
