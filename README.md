@@ -1,3 +1,11 @@
+# 开源消息
+
+**“长嬴开序，炎上为德。”**
+
+吉时雨排盘软件源码终于在丙午年立夏正式开源了！
+
+https://github.com/chxb/jishiyu
+
 # 简介
 根据干支和八字信息，查询神煞组合的算法。涵盖51种常用神煞。
 使用方法参考方法注释：
@@ -22,3 +30,6 @@ function queryShenSha(ganzhi, bazi, isman, witch, niannayin) {
 # 关于作者
 xianbo.chen@gmail.com
 本人将在丙午年公开[吉时雨排盘](https://ji.js.cn)全部源码，敬请关注。**期待源码的，关注本人github主页即可，不用总是私信问**
+
+
+
